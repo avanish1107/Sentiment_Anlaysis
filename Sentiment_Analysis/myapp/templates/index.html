@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("img_nature.jpg");
+
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aqua;
+}
+
+/* Add styles to the form container */
+.container {
+    position: absolute;
+    left:520px;
+    top:250px;
+    right: 0;
+    margin: 10px;
+    max-width: 300px;
+    
+    padding: 16px;
+    background-color: yellow;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-color: green;
+    color: white;
+    padding: 16px 20px;
+    border: yellow;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+    color: black;
+}
+    #h2{
+        border:2px solid ; 
+        background-color:orangered;
+        font-family: monospace;
+        letter-spacing: 5px;
+    }
+</style>
+</head>
+<body>
+<center>
+    <div id="h2"><h1 >Sentiment Analysis on the Review of Electronic Devices </h1></div></center><div class="bg-img">
+  <form action="/submit">
+    <div class="container">
+      
+
+      <label for="email"><b>Comment</b></label>
+      <input type="text" placeholder="Enter Your Valuable Comment here!" id='review' name="review" required>
+
+
+  	 <button type="submit" id='into' class="btn">Submit</button>
+    </div>
+  </form>
+    
+</div>
+    
+</body>
+<script>
+
+$(document).ready(function(){
+
+$('#into').read(function(){
+var uname=$('#review').val()
+$.get('/submit',{user:uname},function(response){alert(response); });
+
+});
+
+});
+
+
+
+</script>
+</html>
